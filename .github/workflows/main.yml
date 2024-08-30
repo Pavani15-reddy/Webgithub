@@ -1,0 +1,17 @@
+name: ASP.net web application
+ 
+on:
+  push:
+    branches:
+      - master
+ 
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v1         
+      - name: Build App
+        run: msbuild Webgithub.sln
