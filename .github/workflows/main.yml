@@ -12,6 +12,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up MSBuild
-        uses: microsoft/setup-msbuild@v1         
+        uses: microsoft/setup-msbuild@v1 
+
+      - name: setup Nuget
+        uses: Nuget/setup-nuget@v1.0.5
+        
+      - name: Restore nuget packages
+        run: nuget restore Webgithub.sln
       - name: Build App
         run: msbuild Webgithub.sln
